@@ -1,0 +1,10 @@
+{
+    "OK"    : "Okay",
+    "Abort" : "Abort",
+    "Retry" : "Retry",
+    "MFile" : "File",
+    "MEdit" : "Edit",
+    "MQuit" : "Quit",
+    "MNew"  : "New",
+    "MOpen" : "Open"
+}
