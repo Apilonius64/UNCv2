@@ -4,7 +4,12 @@
 #include <ui/lang/lang.h>
 #include <UNCConfig.h>
 
+#include <io/logger.h>
+
 Editor::Editor() : wxFrame(nullptr, wxID_ANY, Lang::get(UNC_JSON_WND_TITLE)) {
+    Log((const char*)"Initalizing editor window ...", UNC_INFO_TYPE_NOTE);
+    //Logger::log("")
+
     // ProjectMenu > FileMenu
     // ----------------------
     wxMenu* FileMenu = new wxMenu();
@@ -59,7 +64,7 @@ Editor::Editor() : wxFrame(nullptr, wxID_ANY, Lang::get(UNC_JSON_WND_TITLE)) {
     wxMenuBar* MainMenuBar = new wxMenuBar();
     MainMenuBar->Append(ProjMenu, L(UNC_JSON_PROJECT_MENU_LBL));
     MainMenuBar->Append(EditMenu, L(UNC_JSON_EDIT_MENU_LBL));
-    MainMenuBar->Append(ViewMenu, L(UNC_JSON_EDIT_MENU_LBL));
+    MainMenuBar->Append(ViewMenu, L(UNC_JSON_VIEW_MENU_LBL));
     MainMenuBar->Append(HelpMenu, L(UNC_JSON_HELP_MENU_LBL));
     MainMenuBar->Append(NetworkMenu, L(UNC_JSON_NET_MENU_LBL));
 

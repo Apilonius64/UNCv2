@@ -4,7 +4,7 @@
 #include <map>
 #include <string>
 #include <fstream>
-#include <UNCTypes.h>
+#include <io/UNCTypes.h>
 
 typedef std::map<UNC_ISTR, UNC_KSTR> LangPck;
 
@@ -25,6 +25,9 @@ public:
     static UNC_ISTR    get(UNC_KSTR key);
     static LangPck     getCurrentPck() {
         return pcks[current];
+    }
+    static UNC_KSTR getCurrentPckName() {
+        return current;
     }
 
     static UNC_DIC_ERR loadAllOfDic(UNC_PATH path);

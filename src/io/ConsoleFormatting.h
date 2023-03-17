@@ -12,13 +12,13 @@ public:
 
     static inline UNC_MSG getMsg(UNC_INFO_TYPE info) {
         switch(info) {
-            case OK:
+            case UNC_INFO_TYPE_INFO:
                 return CONSOLE_INFO;
-            case NOTE:
+            case UNC_INFO_TYPE_NOTE:
                 return CONSOLE_NOTE;
-            case WARNING:
+            case UNC_INFO_TYPE_WARNING:
                 return CONSOLE_WARNING;
-            case ERR:
+            case UNC_INFO_TYPE_ERR:
                 return CONSOLE_ERR;
             default:
                 return CONSOLE_UNDEFINED;
@@ -26,7 +26,7 @@ public:
     }
 
     static inline UNC_MSG Container(UNC_INFO_TYPE info) {
-        Container(getMsg(info));
+        return Container(getMsg(info));
     }
 };
 

@@ -3,7 +3,12 @@
 
 #include "../uncwx.h"
 
-class Editor : public wxFrame {
+#include <io/UNCTypes.h>
+#include <io/OBJ.h>
+#include <io/logger.h>
+
+class Editor : public wxFrame, public Logged {
+UNC_IMPLEMENT_OBJECT(Editor)
 public:
     Editor();
 };

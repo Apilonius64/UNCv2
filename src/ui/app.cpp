@@ -1,7 +1,7 @@
 #include "app.h"
 #include "editor/editor.h"
+#include "lang/lang.h"
 
-#include <lang/lang.h>
 #include <io/algo.h>
 #include <UNCConfig.h>
 

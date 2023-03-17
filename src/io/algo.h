@@ -4,6 +4,8 @@
 #include <io/UNCTypes.h>
 #include <io/logger.h>
 
+#include <filesystem>
+
 #define ALGO_CLASSNAME "Algo"
 
 class Algo {
@@ -17,14 +19,14 @@ public:
         return file_without_extension;
     }
 
-    template <typename CALLBACK> static inline UNC_DIC_ERR iterateOverDic(UNC_PATH path, CALLBACK callback) {
-        Logger::log("Iterating over dictionary", INFO, ALGO_CLASSNAME);
+    template <typename CALLABLE> static inline UNC_DIC_ERR iterateOverDic(UNC_PATH path, CALLABLE callback) {
+        // Logger::log("Iterating over dictionary", UNC_INFO_TYPE_INFO, ALGO_CLASSNAME);
         for(const auto& entry : std::filesystem::recursive_directory_iterator(path)) {
-            Logger::log("Calling callback for " + entry, INFO, ALGO_CLASSNAME)
-            callback(UNC_STR(entry));
+            // Logger::log("Calling callback for " + entry.path().u8string(), UNC_INFO_TYPE_INFO, ALGO_CLASSNAME);
+            callback(entry.path().u8string());
         }
 
-        return OK;
+        return UNC_DIC_ERR_OK;
     }
 
     static inline UNC_PATH getSharePath(UNC_KSTR foldername) {
